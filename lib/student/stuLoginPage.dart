@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:kwiz/student/stuHomePage.dart';
 
 class StudentLoginPage extends StatefulWidget {
+  static const String id = 'StuLoginPage';
   @override
   _StudentLoginPageState createState() => _StudentLoginPageState();
 }
@@ -94,6 +96,8 @@ class _StudentLoginPageState extends State<StudentLoginPage> {
                             child: RaisedButton(
                                 onPressed: () {
                                   //on pressed function
+                                  Navigator.of(context)
+                                      .pushNamed(StudentHomePage.id);
                                 },
                                 color: Colors.redAccent,
                                 splashColor: Colors.deepPurpleAccent,

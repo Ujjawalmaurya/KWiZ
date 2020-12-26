@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TeachersLoginPage extends StatefulWidget {
+  static const String id = 'teachersLoginPage';
   @override
   _TeachersLoginPageState createState() => _TeachersLoginPageState();
 }

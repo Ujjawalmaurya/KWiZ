@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:kwiz/admin/adminHomePage.dart';
+import 'package:kwiz/student/stuLoginPage.dart';
 
 class ShowCasePage extends StatelessWidget {
   @override
@@ -33,13 +35,13 @@ class ShowCasePage extends StatelessWidget {
               MainScreenButtons(
                   colour: Colors.deepPurpleAccent,
                   onPressed: () {
-                    Navigator.of(context).pushNamed('StudentLoginPage');
+                    Navigator.of(context).pushNamed(StudentLoginPage.id);
                   },
                   text: "I'am a Student"),
               MainScreenButtons(
                 colour: Colors.redAccent,
                 onPressed: () {
-                  Navigator.of(context).pushNamed('TeacherLoginPage');
+                  Navigator.of(context).pushNamed(TeachersHomePage.id);
                 },
                 text: "I'am a Teacher",
               )

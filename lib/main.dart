@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:kwiz/admin/adminHomePage.dart';
 import 'package:kwiz/landingPage.dart';
+import 'package:kwiz/student/stuHomePage.dart';
 import 'package:kwiz/student/stuLoginPage.dart';
 import 'package:kwiz/admin/teacherLoginPage.dart';
 
@@ -13,8 +15,10 @@ class MyApp extends StatelessWidget {
       initialRoute: LandingPage.id,
       routes: {
         LandingPage.id: (context) => LandingPage(),
-        'StudentLoginPage': (context) => StudentLoginPage(),
-        'TeacherLoginPage': (context) => TeachersLoginPage(),
+        StudentLoginPage.id: (context) => StudentLoginPage(),
+        StudentHomePage.id: (ctx) => StudentHomePage(),
+        TeachersLoginPage.id: (context) => TeachersLoginPage(),
+        TeachersHomePage.id: (ctx) => TeachersHomePage(),
       },
     );
   }
