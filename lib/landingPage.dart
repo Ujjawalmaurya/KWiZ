@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:kwiz/student/stuLoginPage.dart';
 import 'package:kwiz/HomePage.dart';
 import 'HomePage.dart';
 
