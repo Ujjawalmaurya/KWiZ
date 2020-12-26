@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kwiz/landingPage.dart';
-import 'package:kwiz/stuLoginPage.dart';
-import 'package:kwiz/teacherLoginPage.dart';
+import 'package:kwiz/student/stuLoginPage.dart';
+import 'package:kwiz/admin/teacherLoginPage.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,9 +10,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       // home: LandingPage(),
-      initialRoute: '/',
+      initialRoute: LandingPage.id,
       routes: {
-        '/': (context) => LandingPage(),
+        LandingPage.id: (context) => LandingPage(),
         'StudentLoginPage': (context) => StudentLoginPage(),
         'TeacherLoginPage': (context) => TeachersLoginPage(),
       },

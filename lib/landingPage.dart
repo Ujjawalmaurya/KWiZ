@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:kwiz/stuLoginPage.dart';
+import 'package:kwiz/student/stuLoginPage.dart';
 import 'package:kwiz/showPage.dart';
 import 'homePage.dart';
 
 class LandingPage extends StatefulWidget {
-  // static const String id = 'LandingPage';
+  static const String id = '/';
   @override
   _LandingPageState createState() => _LandingPageState();
 }
