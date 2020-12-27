@@ -9,6 +9,12 @@ class TeachersHomePage extends StatefulWidget {
 class _TeachersHomePageState extends State<TeachersHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Container(
+        decoration: BoxDecoration(
+            // color:
+            ),
+      ),
+    );
   }
 }

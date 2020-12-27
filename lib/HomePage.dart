@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:kwiz/admin/adminHomePage.dart';
 import 'package:kwiz/student/stuLoginPage.dart';
@@ -13,24 +15,25 @@ class ShowCasePage extends StatelessWidget {
           fit: BoxFit.cover,
         )),
         padding:
-            EdgeInsets.only(left: 25.0, right: 25.0, top: 70.0, bottom: 70.0),
+            EdgeInsets.only(left: 20.0, right: 20.0, top: 60.0, bottom: 60.0),
         // color: Colors.tealAccent,
         child: Card(
-          // elevation: 20,
-          shadowColor: Color(0x00000000),
-          margin: EdgeInsets.only(top: 50.0, bottom: 50.0),
+          elevation: 20,
+          margin: EdgeInsets.only(top: 30.0, bottom: 30.0),
+          // shadowColor: Color(0x00000000),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
-          color: Color(0x00000000),
+          // color: Color(0x00000000),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              CircleAvatar(
-                backgroundColor: Colors.lightBlueAccent,
-                radius: 100.0,
-                // child: Image(
-                //   image: AssetImage('assets/logo.jpg'),
-                // ),
+              Container(
+                height: MediaQuery.of(context).size.width * .85,
+                width: MediaQuery.of(context).size.width * .85,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: AssetImage('assets/schoolGirl.jpg'))),
               ),
               MainScreenButtons(
                   colour: Colors.deepPurpleAccent,
@@ -65,7 +68,7 @@ class MainScreenButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * .75,
-      height: 50.0,
+      height: 55.0,
       child: RaisedButton(
         onPressed: onPressed,
         elevation: 20,
@@ -76,7 +79,7 @@ class MainScreenButtons extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
-              fontSize: 30.0, fontWeight: FontWeight.w700, color: Colors.white),
+              fontSize: 30.0, fontWeight: FontWeight.w900, color: Colors.white),
         ),
       ),
     );
