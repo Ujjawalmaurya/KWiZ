@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kwiz/admin/addTest.dart';
+import 'package:decorated_icon/decorated_icon.dart';
 
 class TeachersHomePage extends StatefulWidget {
   static const String id = 'adminHomePage';
@@ -33,18 +34,35 @@ class _TeachersHomePageState extends State<TeachersHomePage> {
                       borderRadius: BorderRadius.circular(30.0)),
                   onPressed: () {
                     // Navigator.of(context).pushNamed(AddTest.id);
-
                     showModalBottomSheet(
                         context: context,
                         builder: (BuildContext context) => AddTest());
                   },
                   color: Colors.blueAccent,
-                  child: Text(
-                    "Add a new Test",
-                    style: TextStyle(
-                      fontSize: 25.0,
-                      color: Colors.white,
-                    ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      DecoratedIcon(Icons.add,
+                          color: Colors.pink,
+                          size: 75.0,
+                          shadows: [
+                            BoxShadow(
+                              blurRadius: 25.0,
+                              color: Colors.pinkAccent,
+                            ),
+                            BoxShadow(
+                              blurRadius: 15.0,
+                              color: Colors.lightBlueAccent,
+                            ),
+                          ]),
+                      Text(
+                        "Add a new Test",
+                        style: TextStyle(
+                          fontSize: 30.0,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),

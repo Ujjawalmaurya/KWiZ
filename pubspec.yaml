@@ -9,7 +9,7 @@ dependencies:
   flutter:
     sdk: flutter
   # cloud_firestore: ^0.14.4
-  decorated_icon: null
+  decorated_icon: 
   firebase_auth: ^0.18.4+1
   firebase_core: 
   flutter_spinkit: ^4.1.2+1

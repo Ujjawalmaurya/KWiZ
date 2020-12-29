@@ -26,7 +26,6 @@ class MyApp extends StatelessWidget {
         StudentHomePage.id: (ctx) => StudentHomePage(),
         TeachersLoginPage.id: (context) => TeachersLoginPage(),
         TeachersHomePage.id: (ctx) => TeachersHomePage(),
-        AddTest.id: (ctx) => AddTest(),
       },
     );
   }
