@@ -8,8 +8,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  decorated_icon: 
+  # cloud_firestore: ^0.14.4
+  decorated_icon: null
   firebase_auth: ^0.18.4+1
+  firebase_core: 
+  flutter_spinkit: ^4.1.2+1
 
 dev_dependencies:
   flutter_test:

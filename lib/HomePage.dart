@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:kwiz/admin/adminHomePage.dart';
+import 'package:kwiz/admin/teacherLoginPage.dart';
 import 'package:kwiz/student/stuLoginPage.dart';
 
 class ShowCasePage extends StatelessWidget {
@@ -19,8 +20,7 @@ class ShowCasePage extends StatelessWidget {
         // color: Colors.tealAccent,
         child: Card(
           elevation: 20,
-          margin: EdgeInsets.only(top: 30.0, bottom: 30.0),
-          // shadowColor: Color(0x00000000),
+          // margin: EdgeInsets.only(top: 30.0, bottom: 30.0),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
           // color: Color(0x00000000),
@@ -44,7 +44,7 @@ class ShowCasePage extends StatelessWidget {
               MainScreenButtons(
                 colour: Colors.redAccent,
                 onPressed: () {
-                  Navigator.of(context).pushNamed(TeachersHomePage.id);
+                  Navigator.of(context).pushNamed(TeachersLoginPage.id);
                 },
                 text: "I'am a Teacher",
               )
