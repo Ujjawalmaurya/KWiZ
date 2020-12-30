@@ -145,7 +145,7 @@ class _TeachersLoginPageState extends State<TeachersLoginPage> {
                                     }
                                   },
                                   onChanged: (input) {
-                                    username = input;
+                                    username = input + "@admin.clg";
                                   },
                                   decoration:
                                       InputDecoration(labelText: "Username"),

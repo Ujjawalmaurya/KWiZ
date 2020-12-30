@@ -10,17 +10,21 @@ class _StudentHomePageState extends State<StudentHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: ListView(),
+      ),
+      appBar: AppBar(
+        backgroundColor: Colors.deepPurpleAccent,
+        title: Text("Student Pannel"),
+        actions: [IconButton(icon: Icon(Icons.logout), onPressed: () {})],
+      ),
       body: Container(
         padding: EdgeInsets.all(20.0),
         height: MediaQuery.of(context).size.height * 1,
         width: MediaQuery.of(context).size.width * 1,
         color: Colors.amber,
         child: SafeArea(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [MainWidgets(), Text("Hello There")],
-          ),
+          child: Column(),
         ),
       ),
     );

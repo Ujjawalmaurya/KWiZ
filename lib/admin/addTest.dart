@@ -30,7 +30,8 @@ class _AddTestState extends State<AddTest> {
                   ),
                 ),
                 ListTile(
-                  leading: DecoratedLeadingIcon(icon: Icons.quickreply_sharp),
+                  leading: DecoratedLeadingIcon(
+                      icon: Icons.question_answer_outlined),
                   // title: ,
                 ),
                 ListTile(
@@ -68,11 +69,11 @@ class DecoratedLeadingIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedIcon(icon, color: Colors.pink, size: 35.0, shadows: [
       BoxShadow(
-        blurRadius: 25.0,
-        color: Colors.pinkAccent,
+        blurRadius: 15.0,
+        color: Colors.pink,
       ),
       BoxShadow(
-        blurRadius: 15.0,
+        blurRadius: 25.0,
         color: Colors.white,
       ),
     ]);
