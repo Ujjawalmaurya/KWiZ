@@ -8,10 +8,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  # cloud_firestore: ^0.14.4
-  decorated_icon: 
+  carousel_slider: ^2.3.1
+  decorated_icon: null
   firebase_auth: ^0.18.4+1
-  firebase_core: 
+  firebase_core: null
   flutter_spinkit: ^4.1.2+1
 
 dev_dependencies:

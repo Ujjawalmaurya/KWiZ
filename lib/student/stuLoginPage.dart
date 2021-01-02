@@ -127,7 +127,7 @@ class _StudentLoginPageState extends State<StudentLoginPage> {
                               }
                             },
                             onChanged: (input) {
-                              username = input + "@student.clg";
+                              username = input + "@student.kwiz";
                             },
                             decoration: InputDecoration(labelText: "Username"),
                           ),
