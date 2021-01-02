@@ -19,27 +19,31 @@ class _LandingPageState extends State<LandingPage> {
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.active) {
           User user = snapshot.data;
-          // print(user.email);
-          // var str = user.email;
-          const start = "@";
-          const end = ".kwiz";
-
-          // final startIndex = str.indexOf(start);
-          // final endIndex = str.indexOf(end, startIndex + start.length);
-
-          // var adminOrUser = str.substring(startIndex + start.length, endIndex);
 
           if (user == null) {
             return ShowCasePage();
           }
           print(FirebaseAuth.instance.currentUser);
-          return TeachersHomePage();
+          // return TeachersHomePage();
 
-          // if (adminOrUser == 'admin') {
-          //   return TeachersHomePage();
-          // } else {
-          //   return StudentHomePage();
-          // }
+          if (user != null) {
+            print(user.email);
+            var str = user.email;
+            const start = "@";
+            const end = ".kwiz";
+
+            final startIndex = str.indexOf(start);
+            final endIndex = str.indexOf(end, startIndex + start.length);
+
+            var adminOrUser =
+                str.substring(startIndex + start.length, endIndex);
+
+            if (adminOrUser == 'admin') {
+              return TeachersHomePage();
+            } else {
+              return StudentHomePage();
+            }
+          }
         } else {
           return Scaffold(
             body: Center(

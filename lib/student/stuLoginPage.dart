@@ -33,7 +33,7 @@ class _StudentLoginPageState extends State<StudentLoginPage> {
       final User user = FirebaseAuth.instance.currentUser;
       if (user != null) {
         // writeDeviceInfo();
-        return Navigator.of(context).pushNamed(StudentHomePage.id);
+        return Navigator.of(context).popAndPushNamed(StudentHomePage.id);
       }
     } catch (e) {
       setState(() {
