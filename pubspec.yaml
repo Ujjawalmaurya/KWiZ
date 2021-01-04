@@ -13,6 +13,7 @@ dependencies:
   firebase_auth: ^0.18.4+1
   firebase_core: null
   flutter_spinkit: ^4.1.2+1
+  font_awesome_flutter: ^8.11.0
   rflutter_alert: ^1.1.0
 
 dev_dependencies:

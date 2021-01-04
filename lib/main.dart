@@ -1,7 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:kwiz/admin/AddTestPage.dart';
 import 'package:kwiz/admin/addTest.dart';
 import 'package:kwiz/admin/adminHomePage.dart';
+import 'package:kwiz/admin/getStuDetails.dart';
 import 'package:kwiz/landingPage.dart';
 import 'package:kwiz/student/stuHomePage.dart';
 import 'package:kwiz/student/stuLoginPage.dart';
@@ -26,6 +28,8 @@ class MyApp extends StatelessWidget {
         StudentHomePage.id: (ctx) => StudentHomePage(),
         TeachersLoginPage.id: (context) => TeachersLoginPage(),
         TeachersHomePage.id: (ctx) => TeachersHomePage(),
+        AddTestPage.id: (context) => AddTestPage(),
+        GetStuInfo.id: (context) => GetStuInfo(),
       },
     );
   }

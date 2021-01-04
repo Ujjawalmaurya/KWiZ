@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:kwiz/admin/AddTestPage.dart';
 import 'package:kwiz/admin/addTest.dart';
 import 'package:decorated_icon/decorated_icon.dart';
+import 'package:kwiz/admin/getStuDetails.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -86,10 +88,8 @@ class _TeachersHomePageState extends State<TeachersHomePage> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.0)),
                   onPressed: () {
-                    // Navigator.of(context).pushNamed(AddTest.id);
-                    showModalBottomSheet(
-                        context: context,
-                        builder: (BuildContext context) => AddTest());
+                    Navigator.of(context).pushNamed(AddTestPage.id);
+                    //
                   },
                   color: Colors.blueAccent,
                   child: Row(
@@ -127,7 +127,9 @@ class _TeachersHomePageState extends State<TeachersHomePage> {
                   elevation: 20.0,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.0)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pushNamed(GetStuInfo.id);
+                  },
                   color: Colors.orangeAccent,
                   child: Text(
                     "Get Student details",
