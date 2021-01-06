@@ -11,8 +11,9 @@ class AddTest extends StatefulWidget {
 class _AddTestState extends State<AddTest> {
   bool isSwitched = true;
   bool isTrue = false;
+  String optionA, optionB, optionC, optionD;
 
-  var ansOption;
+  var correctOption;
 
   @override
   Widget build(BuildContext context) {
@@ -121,9 +122,9 @@ class _AddTestState extends State<AddTest> {
                             children: [
                               DropdownButton<String>(
                                 icon: Icon(Icons.arrow_drop_down),
-                                value: (this.ansOption == 'empty')
+                                value: (this.correctOption == 'empty')
                                     ? null
-                                    : this.ansOption,
+                                    : this.correctOption,
                                 hint: Text('Options'),
                                 iconSize: 24,
                                 elevation: 16,
@@ -134,7 +135,7 @@ class _AddTestState extends State<AddTest> {
                                 ),
                                 onChanged: (String newValue) {
                                   setState(() {
-                                    ansOption = newValue;
+                                    correctOption = newValue;
                                   });
                                 },
                                 items: <String>[

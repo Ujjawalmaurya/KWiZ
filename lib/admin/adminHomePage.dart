@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kwiz/admin/AddTestPage.dart';
-import 'package:kwiz/admin/addTestSheet.dart';
+import 'package:kwiz/admin/addingTest/AddTestPage.dart';
+import 'package:kwiz/admin/addingTest/addTestSheet.dart';
 import 'package:decorated_icon/decorated_icon.dart';
 import 'package:kwiz/admin/getStuDetails.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
