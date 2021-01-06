@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:kwiz/admin/AddTestPage.dart';
-import 'package:kwiz/admin/addTest.dart';
+import 'package:kwiz/admin/addTestSheet.dart';
 import 'package:kwiz/admin/adminHomePage.dart';
 import 'package:kwiz/admin/getStuDetails.dart';
 import 'package:kwiz/landingPage.dart';

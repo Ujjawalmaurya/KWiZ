@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'addTest.dart';
+import 'addTestSheet.dart';
 
 class AddTestPage extends StatefulWidget {
   static const String id = 'addTestPage';
@@ -15,7 +15,13 @@ class _AddTestPageState extends State<AddTestPage> {
         title: Text("Add a test"),
         backgroundColor: Colors.pinkAccent,
       ),
-      body: Container(),
+      body: Container(
+        decoration: BoxDecoration(
+            image: DecorationImage(
+          fit: BoxFit.cover,
+          image: AssetImage('assets/testbg.png'),
+        )),
+      ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
