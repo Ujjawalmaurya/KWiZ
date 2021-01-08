@@ -6,6 +6,7 @@ import 'package:kwiz/admin/getStuDetails.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
+import 'package:kwiz/constants.dart';
 
 class TeachersHomePage extends StatefulWidget {
   static const String id = 'adminHomePage';
@@ -112,7 +113,9 @@ class _TeachersHomePageState extends State<TeachersHomePage> {
                       Text(
                         "Add a new Test",
                         style: TextStyle(
-                          fontSize: 30.0,
+                          fontFamily: jost,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 40.0,
                           color: Colors.white,
                         ),
                       ),
@@ -135,7 +138,9 @@ class _TeachersHomePageState extends State<TeachersHomePage> {
                   child: Text(
                     "Get Student details",
                     style: TextStyle(
-                      fontSize: 25.0,
+                      fontFamily: jost,
+                      fontWeight: FontWeight.w900,
+                      fontSize: 35.0,
                       color: Colors.white,
                     ),
                   ),

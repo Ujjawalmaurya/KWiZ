@@ -1,5 +1,6 @@
 import 'package:decorated_icon/decorated_icon.dart';
 import 'package:flutter/cupertino.dart';
+// import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:kwiz/constants.dart';
 
@@ -9,11 +10,40 @@ class AddTest extends StatefulWidget {
 }
 
 class _AddTestState extends State<AddTest> {
-  bool isSwitched = true;
-  bool isTrue = false;
-  String optionA, optionB, optionC, optionD;
-
+  // final dRefrence = FirebaseDatabase.instance.reference();
+  bool isUploading;
+  String question;
+  bool isBool = true;
+  bool isBoolAnswer = false;
   var correctOption;
+  String optionA, optionB, optionC, optionD;
+  var currentDate = '7-Jan-2021';
+  var branch = "CSE";
+
+  // uploadVideoLink() async {
+  //   if (question.isNotEmpty) {
+  //     setState(() {
+  //       isUploading = true;
+  //     });
+  //     final dbReference = dRefrence.child(currentDate).child(branch);
+  //     await dbReference.push().set({
+  //       "question": question,
+  //       "answer": isBoolAnswer,
+  //     }).catchError((e) {
+  //       print(e.toString());
+  //     });
+  // .whenComplete(() => clearFields());
+  //   } else {
+  // Fluttertoast.showToast(
+  //     msg: "Please fill all fields Correctly",
+  //     toastLength: Toast.LENGTH_SHORT,
+  //     gravity: ToastGravity.BOTTOM,
+  //     timeInSecForIosWeb: 1,
+  //     backgroundColor: Colors.red,
+  //     textColor: Colors.white,
+  //     fontSize: 16.0);
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -29,23 +59,31 @@ class _AddTestState extends State<AddTest> {
                       topLeft: Radius.circular(10.0))),
               child: SingleChildScrollView(
                 child: Column(children: [
-                  ListTile(
-                    leading: null,
-                    trailing: null,
-                    title: Text(
-                      "Add questions for test",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontSize: 28.0, fontWeight: FontWeight.w700),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10.0, bottom: 5),
+                    child: ListTile(
+                      // leading: null,
+                      // trailing: null,
+                      title: Text(
+                        "Add questions for test",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontFamily: manjari,
+                            fontSize: 30.0,
+                            fontWeight: FontWeight.w800),
+                      ),
                     ),
                   ),
-                  // !================= Question Tile===========
+                  // !================= Question Tile====================
                   // !====================================================
                   ListTile(
-                    // leading: DecoratedLeadingIcon(
-                    //   icon: Icons.ac_unit,
-                    // ),
+                    // leading: DecoratedLeadingIcon(icon: Icons.ac_unit),
                     title: TextFormField(
+                      onChanged: (value) {
+                        setState(() {
+                          question = value;
+                        });
+                      },
                       decoration: InputDecoration(
                         hintText: 'Put your question here...',
                         focusColor: Colors.blueGrey,
@@ -57,7 +95,7 @@ class _AddTestState extends State<AddTest> {
                           ),
                         ),
                         enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(25.0),
+                          borderRadius: BorderRadius.circular(10.0),
                           borderSide: BorderSide(
                             color: Colors.pinkAccent,
                             width: 2.0,
@@ -74,13 +112,14 @@ class _AddTestState extends State<AddTest> {
                     title: Text(
                       "Switch Right Button (Bordered) to get True-False/Option Answer Type",
                       style: TextStyle(
+                          fontFamily: jost,
                           fontSize: 17.0,
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.w200,
                           color: Colors.pink),
                     ),
                   ),
-                  // !================= Answer Tile ========================
-                  // !===========================================================
+                  // !================= Answer Tile ===========================
+                  // !=========================================================
                   ListTile(
                     leading: DecoratedLeadingIcon(
                         icon: Icons.question_answer_outlined),
@@ -91,27 +130,27 @@ class _AddTestState extends State<AddTest> {
                           border:
                               Border.all(color: Colors.redAccent, width: 1.5)),
                       child: CupertinoSwitch(
-                        value: isSwitched,
+                        value: isBool,
                         onChanged: (value) {
                           setState(() {
-                            isSwitched = value;
-                            print(isSwitched);
+                            isBool = value;
+                            print(isBool);
                           });
                         },
                         activeColor: Colors.redAccent,
                       ),
                     ),
-                    title: isSwitched == true
+                    title: isBool == true
                         ? Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               Text("False"),
                               CupertinoSwitch(
-                                  value: isTrue,
+                                  value: isBoolAnswer,
                                   onChanged: (value) {
                                     setState(() {
-                                      isTrue = value;
-                                      print(isTrue);
+                                      isBoolAnswer = value;
+                                      print(isBoolAnswer);
                                     });
                                   }),
                               Text("True")
@@ -155,19 +194,39 @@ class _AddTestState extends State<AddTest> {
                           ),
                   ),
                   Container(
-                      child: (isSwitched == false)
+                      child: (isBool == false)
                           ? Column(
                               children: [
                                 OptionFields(
+                                  onSaved: (value) {
+                                    setState(() {
+                                      optionA = value;
+                                    });
+                                  },
                                   hintText: "Option A",
                                 ),
                                 OptionFields(
+                                  onSaved: (value) {
+                                    setState(() {
+                                      optionB = value;
+                                    });
+                                  },
                                   hintText: "Option B",
                                 ),
                                 OptionFields(
+                                  onSaved: (value) {
+                                    setState(() {
+                                      optionC = value;
+                                    });
+                                  },
                                   hintText: "Option C",
                                 ),
                                 OptionFields(
+                                  onSaved: (value) {
+                                    setState(() {
+                                      optionD = value;
+                                    });
+                                  },
                                   hintText: "Option D",
                                 ),
                               ],
@@ -199,33 +258,33 @@ class _AddTestState extends State<AddTest> {
 class OptionFields extends StatelessWidget {
   OptionFields({
     @required this.hintText,
+    @required this.onSaved,
   });
 
   final String hintText;
+  final Function(String) onSaved;
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
       title: TextFormField(
+        onSaved: onSaved,
         decoration: InputDecoration(
           hintText: hintText,
           focusColor: Colors.blueGrey,
           hoverColor: Colors.deepPurpleAccent,
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(5.0),
-            borderSide: BorderSide(
-              color: Colors.blue,
-            ),
+            borderRadius: BorderRadius.circular(15.0),
+            borderSide: BorderSide(color: Colors.blue, width: 2),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15.0),
             borderSide: BorderSide(
-              color: Colors.blueAccent,
+              color: Colors.pinkAccent,
               width: 1.5,
             ),
           ),
         ),
-        // maxLines: 3,
         textAlign: TextAlign.center,
       ),
     );
