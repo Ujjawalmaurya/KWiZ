@@ -1,8 +1,10 @@
 import 'package:decorated_icon/decorated_icon.dart';
 import 'package:flutter/cupertino.dart';
 // import 'package:firebase_database/firebase_database.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:kwiz/constants.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class AddTest extends StatefulWidget {
   @override
@@ -10,7 +12,8 @@ class AddTest extends StatefulWidget {
 }
 
 class _AddTestState extends State<AddTest> {
-  // final dRefrence = FirebaseDatabase.instance.reference();
+  final firestoreInstance = FirebaseFirestore.instance;
+
   bool isUploading;
   String question;
   bool isBool = true;
@@ -19,31 +22,6 @@ class _AddTestState extends State<AddTest> {
   String optionA, optionB, optionC, optionD;
   var currentDate = '7-Jan-2021';
   var branch = "CSE";
-
-  // uploadVideoLink() async {
-  //   if (question.isNotEmpty) {
-  //     setState(() {
-  //       isUploading = true;
-  //     });
-  //     final dbReference = dRefrence.child(currentDate).child(branch);
-  //     await dbReference.push().set({
-  //       "question": question,
-  //       "answer": isBoolAnswer,
-  //     }).catchError((e) {
-  //       print(e.toString());
-  //     });
-  // .whenComplete(() => clearFields());
-  //   } else {
-  // Fluttertoast.showToast(
-  //     msg: "Please fill all fields Correctly",
-  //     toastLength: Toast.LENGTH_SHORT,
-  //     gravity: ToastGravity.BOTTOM,
-  //     timeInSecForIosWeb: 1,
-  //     backgroundColor: Colors.red,
-  //     textColor: Colors.white,
-  //     fontSize: 16.0);
-  //   }
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -176,6 +154,7 @@ class _AddTestState extends State<AddTest> {
                                   setState(() {
                                     correctOption = newValue;
                                   });
+                                  print(correctOption);
                                 },
                                 items: <String>[
                                   'A',
@@ -198,6 +177,11 @@ class _AddTestState extends State<AddTest> {
                           ? Column(
                               children: [
                                 OptionFields(
+                                  onChanged: (value) {
+                                    setState(() {
+                                      optionA = value;
+                                    });
+                                  },
                                   onSaved: (value) {
                                     setState(() {
                                       optionA = value;
@@ -206,6 +190,11 @@ class _AddTestState extends State<AddTest> {
                                   hintText: "Option A",
                                 ),
                                 OptionFields(
+                                  onChanged: (value) {
+                                    setState(() {
+                                      optionB = value;
+                                    });
+                                  },
                                   onSaved: (value) {
                                     setState(() {
                                       optionB = value;
@@ -214,6 +203,11 @@ class _AddTestState extends State<AddTest> {
                                   hintText: "Option B",
                                 ),
                                 OptionFields(
+                                  onChanged: (value) {
+                                    setState(() {
+                                      optionC = value;
+                                    });
+                                  },
                                   onSaved: (value) {
                                     setState(() {
                                       optionC = value;
@@ -222,6 +216,11 @@ class _AddTestState extends State<AddTest> {
                                   hintText: "Option C",
                                 ),
                                 OptionFields(
+                                  onChanged: (value) {
+                                    setState(() {
+                                      optionD = value;
+                                    });
+                                  },
                                   onSaved: (value) {
                                     setState(() {
                                       optionD = value;
@@ -233,19 +232,62 @@ class _AddTestState extends State<AddTest> {
                             )
                           : null),
                   Divider(),
-                  Container(
-                    height: 50.0,
-                    // margin: EdgeInsets.only(left: 80.0, right: 80.0),
-                    child: RaisedButton(
-                      shape: adminButtonShape,
-                      onPressed: () {},
-                      color: Colors.pinkAccent,
-                      child: Text(
-                        "Add",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 25.0,
-                            fontWeight: FontWeight.w700),
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Container(
+                      height: 50.0,
+                      child: RaisedButton(
+                        shape: adminButtonShape,
+                        onPressed: () async {
+                          if (question.isEmpty) {
+                            //** === Alert for empty question ====
+                            //** =================================
+                          } else {
+                            if (isBool == false) {
+                              if (correctOption != null &&
+                                  optionA != null &&
+                                  optionB != null &&
+                                  optionC != null &&
+                                  optionD != null) {
+                                await firestoreInstance
+                                    .collection(branch)
+                                    .doc(currentDate)
+                                    .set({
+                                  "question": question,
+                                  'isBool': isBool,
+                                  'correctOption': correctOption,
+                                  "options": {
+                                    'optionA': optionA,
+                                    "optionB": optionB,
+                                    "optionC": optionC,
+                                    "optionD": optionD,
+                                  }
+                                }).then((_) {
+                                  print("success!");
+                                });
+                              }
+                            } else {
+                              await firestoreInstance
+                                  .collection(branch)
+                                  .doc(currentDate)
+                                  .set({
+                                "question": question,
+                                'isBool': isBool,
+                                'isBoolAnswer': isBoolAnswer,
+                              }).then((_) {
+                                print("success!");
+                              });
+                            }
+                          }
+                        },
+                        color: Colors.pinkAccent,
+                        child: Text(
+                          "Add",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 25.0,
+                              fontWeight: FontWeight.w700),
+                        ),
                       ),
                     ),
                   ),
@@ -259,16 +301,19 @@ class OptionFields extends StatelessWidget {
   OptionFields({
     @required this.hintText,
     @required this.onSaved,
+    @required this.onChanged,
   });
 
   final String hintText;
   final Function(String) onSaved;
+  final Function(String) onChanged;
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
       title: TextFormField(
         onSaved: onSaved,
+        onChanged: onChanged,
         decoration: InputDecoration(
           hintText: hintText,
           focusColor: Colors.blueGrey,

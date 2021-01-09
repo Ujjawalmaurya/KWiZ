@@ -12,7 +12,7 @@ dependencies:
   decorated_icon: null
   firebase_auth: ^0.18.4+1
   firebase_core:
-  # cloud_firestore:
+  cloud_firestore:
   # firebase_database:
   # firebase_storage:
   flutter_spinkit: ^4.1.2+1
