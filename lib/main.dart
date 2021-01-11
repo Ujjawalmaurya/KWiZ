@@ -30,6 +30,7 @@ class MyApp extends StatelessWidget {
         TeachersHomePage.id: (ctx) => TeachersHomePage(),
         AddTestPage.id: (context) => AddTestPage(),
         GetStuInfo.id: (context) => GetStuInfo(),
+        AddTest.id: (context) => AddTest(),
       },
     );
   }
