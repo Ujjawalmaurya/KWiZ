@@ -5,3 +5,5 @@ firebase_auth=/home/ujjawal/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_
 firebase_auth_web=/home/ujjawal/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-0.3.2+3/
 firebase_core=/home/ujjawal/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-0.5.3/
 firebase_core_web=/home/ujjawal/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-0.2.1+1/
+firebase_database=/home/ujjawal/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_database-4.4.0/
+fluttertoast=/home/ujjawal/flutter/.pub-cache/hosted/pub.dartlang.org/fluttertoast-7.1.6/

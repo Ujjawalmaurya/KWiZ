@@ -35,8 +35,8 @@ class _AddTestState extends State<AddTest> {
         child: Container(
             padding: EdgeInsets.only(top: 3, bottom: 10),
             decoration: BoxDecoration(
-                image: DecorationImage(
-                    fit: BoxFit.fill, image: AssetImage('assets/addTest.png')),
+                // image: DecorationImage(
+                //     fit: BoxFit.fill, image: AssetImage('assets/addTest.png')),
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
                     topRight: Radius.circular(10.0),
@@ -44,20 +44,19 @@ class _AddTestState extends State<AddTest> {
             child: SingleChildScrollView(
               child: Column(children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 10.0, bottom: 5),
-                  child: ListTile(
-                    // leading: null,
-                    // trailing: null,
-                    title: Text(
-                      "Add questions for test",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontFamily: manjari,
-                          fontSize: 30.0,
-                          fontWeight: FontWeight.w800),
-                    ),
-                  ),
-                ),
+                    padding: const EdgeInsets.only(top: 10.0, bottom: 5),
+                    child: ListTile(
+                      // leading: null,
+                      // trailing: null,
+                      title: Text(
+                        "Add questions for test",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontFamily: manjari,
+                            fontSize: 30.0,
+                            fontWeight: FontWeight.w800),
+                      ),
+                    )),
                 // !================= Question Tile====================
                 // !====================================================
                 ListTile(

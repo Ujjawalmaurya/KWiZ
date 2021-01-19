@@ -4,6 +4,7 @@ import 'package:kwiz/admin/addingTest/AddTestPage.dart';
 import 'package:kwiz/admin/addingTest/addTestSheet.dart';
 import 'package:kwiz/admin/adminHomePage.dart';
 import 'package:kwiz/admin/getStuDetails.dart';
+import 'package:kwiz/admin/signUp.dart';
 import 'package:kwiz/landingPage.dart';
 import 'package:kwiz/student/stuHomePage.dart';
 import 'package:kwiz/student/stuLoginPage.dart';
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
         AddTestPage.id: (context) => AddTestPage(),
         GetStuInfo.id: (context) => GetStuInfo(),
         AddTest.id: (context) => AddTest(),
+        SignUpPage.id: (context) => SignUpPage(),
       },
     );
   }

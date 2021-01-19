@@ -23,8 +23,8 @@ class _AddTestPageState extends State<AddTestPage> {
               image: AssetImage('assets/testbg.png'),
             )),
             child: Card(
-              margin: EdgeInsets.all(3.0),
-              color: Color(0xFFFFFFF),
+              margin: EdgeInsets.all(2.0),
+              color: Color(0x00FFFFF),
               child: Container(
                 height: MediaQuery.of(context).size.height * 1,
                 width: MediaQuery.of(context).size.width * 1,
