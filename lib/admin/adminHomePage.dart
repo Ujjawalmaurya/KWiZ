@@ -113,9 +113,9 @@ class _TeachersHomePageState extends State<TeachersHomePage> {
                       Text(
                         "Add a new Test",
                         style: TextStyle(
-                          fontFamily: jost,
+                          fontFamily: manjari,
                           fontWeight: FontWeight.w500,
-                          fontSize: 40.0,
+                          fontSize: 30.0,
                           color: Colors.white,
                         ),
                       ),
