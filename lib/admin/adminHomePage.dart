@@ -68,7 +68,15 @@ class _TeachersHomePageState extends State<TeachersHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.redAccent,
-        title: Text("Teachers Admin Page"),
+        title: Text(
+          "Teachers Admin Page",
+          style: TextStyle(
+            fontWeight: FontWeight.w900,
+            fontSize: 30.0,
+            fontFamily: manjari,
+          ),
+        ),
+        centerTitle: true,
         actions: [
           IconButton(
               icon: Icon(Icons.logout),
@@ -106,7 +114,7 @@ class _TeachersHomePageState extends State<TeachersHomePage> {
                               width: MediaQuery.of(context).size.width,
                               margin: EdgeInsets.symmetric(horizontal: 10.0),
                               decoration: BoxDecoration(
-                                  color: Colors.deepOrangeAccent,
+                                  color: Colors.greenAccent,
                                   borderRadius: BorderRadius.circular(20)),
                               child: Text(
                                 'Current Test $i',
