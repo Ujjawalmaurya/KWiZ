@@ -17,12 +17,44 @@ class _AddTestPageState extends State<AddTestPage> {
       ),
       body: SafeArea(
         child: Container(
-          decoration: BoxDecoration(
-              image: DecorationImage(
-            fit: BoxFit.cover,
-            image: AssetImage('assets/testbg.png'),
-          )),
-        ),
+            decoration: BoxDecoration(
+                image: DecorationImage(
+              fit: BoxFit.cover,
+              image: AssetImage('assets/testbg.png'),
+            )),
+            child: Card(
+              margin: EdgeInsets.all(3.0),
+              color: Color(0xFFFFFFF),
+              child: Container(
+                height: MediaQuery.of(context).size.height * 1,
+                width: MediaQuery.of(context).size.width * 1,
+              ),
+              // child: ListView.builder(
+              // itemCount: datakey.length,
+              // itemBuilder: (context, index) {
+              //   return Column(
+              //     children: [
+              //       ListTile(
+              //           leading: FaIcon(
+              //             FontAwesomeIcons.video,
+              //             color: kThemeColor,
+              //           ),
+              //           title: Text(snapShotdata[index]['title'],
+              //               style: TextStyle(fontSize: 17.0)),
+              //           onTap: () {
+              //             Navigator.push(context, MaterialPageRoute(
+              //               builder: (context) {
+              //                 return Videos(
+              //                     link: snapShotdata[index]['link']);
+              //               },
+              //             ));
+              //           }),
+              //       Divider(color: kThemeColor)
+              //     ],
+              //   );
+              // },
+              // ),
+            )),
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),

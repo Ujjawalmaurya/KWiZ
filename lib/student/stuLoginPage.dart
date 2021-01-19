@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:kwiz/constants.dart';
 import 'package:kwiz/student/stuHomePage.dart';
 
 class StudentLoginPage extends StatefulWidget {
@@ -111,10 +112,28 @@ class _StudentLoginPageState extends State<StudentLoginPage> {
                   child: SingleChildScrollView(
                     child: Column(
                       children: <Widget>[
+                        Container(
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              fit: BoxFit.fitWidth,
+                              image: AssetImage('assets/stuLogin.jpg'),
+                            ),
+                          ),
+                          height: 260,
+                          // width: 400,
+                        ),
+                        Divider(
+                          color: Colors.deepPurpleAccent,
+                          height: 50.0,
+                        ),
                         Text(
                           "Log into Your Student Account",
                           textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 40.0),
+                          style: TextStyle(
+                              color: Colors.deepPurpleAccent,
+                              fontSize: 40.0,
+                              fontFamily: manjari,
+                              fontWeight: FontWeight.w900),
                         ),
 
                         //! Username ====================
@@ -162,11 +181,14 @@ class _StudentLoginPageState extends State<StudentLoginPage> {
                                     signIn();
                                   }
                                 },
-                                color: Colors.redAccent,
+                                color: Colors.deepOrangeAccent,
                                 splashColor: Colors.deepPurpleAccent,
                                 child: Text("Admin Login",
                                     style: TextStyle(
-                                        fontSize: 20.0, color: Colors.white)),
+                                        fontSize: 30.0,
+                                        fontWeight: FontWeight.w900,
+                                        color: Colors.white,
+                                        fontFamily: jost)),
                                 shape: RoundedRectangleBorder(
                                     borderRadius:
                                         BorderRadius.circular(25.0)))),

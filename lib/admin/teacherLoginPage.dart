@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:kwiz/admin/adminHomePage.dart';
+import 'package:kwiz/constants.dart';
 
 class TeachersLoginPage extends StatefulWidget {
   static const String id = 'teachersLoginPage';
@@ -122,17 +123,35 @@ class _TeachersLoginPageState extends State<TeachersLoginPage> {
                         // bottom: MediaQuery.of(context).size.height * 0.16
                       ),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20.0),
-                      ),
+                          borderRadius: BorderRadius.circular(20.0)),
                       child: Padding(
-                        padding: EdgeInsets.all(25.0),
+                        padding: EdgeInsets.only(
+                            top: 5.0, bottom: 15.0, left: 15, right: 15),
                         child: SingleChildScrollView(
                           child: Column(
                             children: <Widget>[
+                              Container(
+                                  decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                    // fit: BoxFit.contain,
+                                    image: AssetImage('assets/adLogin.png'),
+                                  )),
+                                  height:
+                                      MediaQuery.of(context).size.width * 0.6,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.65),
+                              Divider(
+                                color: Colors.deepPurpleAccent,
+                                height: 20.0,
+                              ),
                               Text(
                                 "Log into Your Admin Account",
                                 textAlign: TextAlign.center,
-                                style: TextStyle(fontSize: 40.0),
+                                style: TextStyle(
+                                    fontSize: 40.0,
+                                    color: Colors.pinkAccent,
+                                    fontFamily: jost,
+                                    fontWeight: FontWeight.w900),
                               ),
 
                               //! Username ====================
@@ -169,8 +188,10 @@ class _TeachersLoginPageState extends State<TeachersLoginPage> {
                                 decoration:
                                     InputDecoration(labelText: "Password"),
                               )),
-                              SizedBox(height: 25),
+                              // SizedBox(height: 25),
                               Container(
+                                  margin:
+                                      EdgeInsets.only(top: 20.0, bottom: 35.0),
                                   height: 50.0,
                                   width:
                                       MediaQuery.of(context).size.width * 0.65,
@@ -187,8 +208,9 @@ class _TeachersLoginPageState extends State<TeachersLoginPage> {
                                       splashColor: Colors.deepPurpleAccent,
                                       child: Text("Admin Login",
                                           style: TextStyle(
-                                              fontSize: 20.0,
-                                              color: Colors.white)),
+                                              fontSize: 25.0,
+                                              color: Colors.white,
+                                              fontFamily: jost)),
                                       shape: RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(25.0)))),
