@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 // import 'package:toast/toast.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -66,7 +69,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 'Error',
                 style: TextStyle(color: Colors.red),
               ),
-              content: Text('fill All fields coreectly'),
+              content: Text('fill All fields correctly'),
               actions: [
                 FlatButton(
                   color: Colors.red,
@@ -94,49 +97,50 @@ class _SignUpPageState extends State<SignUpPage> {
       isLoading = 'true';
     });
 
-    // UserCredential userCredential = await FirebaseAuth.instance
-    //     .createUserWithEmailAndPassword(email: email, password: pass);
-    // User user = FirebaseAuth.instance.currentUser;
-    // setState(() {
-    //   tempUser = user;
-    // });
-    // final storage = new FlutterSecureStorage();
-    // String parentEmail = await storage.read(key: 'email');
-    // String parentPass = await storage.read(key: 'pass');
-    // print(parentEmail);
+    UserCredential userCredential = await FirebaseAuth.instance
+        .createUserWithEmailAndPassword(email: email, password: pass);
+    User user = FirebaseAuth.instance.currentUser;
+    setState(() {
+      tempUser = user;
+    });
+    final storage = new FlutterSecureStorage();
+    String parentEmail = await storage.read(key: 'email');
+    String parentPass = await storage.read(key: 'pass');
+    print(parentEmail);
 
-    // await FirebaseAuth.instance
-    //     .signInWithEmailAndPassword(email: parentEmail, password: parentPass);
+    await FirebaseAuth.instance
+        .signInWithEmailAndPassword(email: parentEmail, password: parentPass);
   }
 
-  // writeUUIdWithClass(newUser) async {
-  // final dRefrence = FirebaseDatabase.instance.reference();
-  // print(tempUser.email);
-  // if (tempUser != null) {
-  // final dbReference = dRefrence.child("studentInfos").child(tempUser.uid);
-  // await dbReference.set({
-  //   "class": studentClass,
-  //   "userEmail": tempUser.email,
-  //   "userUid": tempUser.uid,
-  // }).catchError((e) {
-  //     print(e.toString());
-  //   }).whenComplete(() {
-  //     clearFields();
-  //   });
-  // } else {
-  // setState(() {
-  //   isLoading = 'false';
-  // });
-  // Fluttertoast.showToast(
-  //     msg: "Oops",
-  //     toastLength: Toast.LENGTH_SHORT,
-  //     gravity: ToastGravity.BOTTOM,
-  //     timeInSecForIosWeb: 1,
-  //     backgroundColor: Colors.red,
-  //     textColor: Colors.white,
-  //     fontSize: 16.0);
-  //   }
-  // }
+  writeUUIdWithClass(newUser) async {
+    final dRefrence = FirebaseDatabase.instance.reference();
+    print(tempUser.email);
+    if (tempUser != null) {
+      final dbReference = dRefrence.child("studentInfos").child(tempUser.uid);
+      await dbReference.set({
+        "branch": branch,
+        "year": branchYear,
+        "userEmail": tempUser.email,
+        "userUid": tempUser.uid,
+      }).catchError((e) {
+        print(e.toString());
+      }).whenComplete(() {
+        clearFields();
+      });
+    } else {
+      setState(() {
+        isLoading = 'false';
+      });
+      Fluttertoast.showToast(
+          msg: "Oops",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.BOTTOM,
+          timeInSecForIosWeb: 1,
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          fontSize: 16.0);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -209,7 +213,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                     InputDecoration(labelText: "Username"),
                                 onSaved: (input) {
                                   setState(() {
-                                    email = input + '@student.nca';
+                                    email = input + '@student.kwiz';
                                   });
                                   print(this.email);
                                 },
@@ -352,24 +356,26 @@ class _SignUpPageState extends State<SignUpPage> {
                                 //!===========Add New Student Button======///////////
                                 child: RaisedButton(
                                     onPressed: () async {
-                                      // print("email: ${email} and pass: ${pass}");
+                                      print(
+                                          "email: ${email} and pass: ${pass}");
                                       if (_key.currentState.validate()) {
                                         _key.currentState.save();
                                         if (pass == confPass &&
-                                            branch != 'empty') {
+                                            branch != 'empty' &&
+                                            branchYear != 'empty') {
                                           try {
                                             await register();
 
                                             if (tempUser != null) {
-                                              // writeUUIdWithClass(tempUser);
+                                              writeUUIdWithClass(tempUser);
                                               //Message after sucessfull user creation
-                                              // Fluttertoast.showToast(
-                                              // msg:
-                                              //       "${tempUser.email} + Added Sucesfully in database",
-                                              //   gravity: ToastGravity.CENTER,
-                                              //   backgroundColor: Colors.green,
-                                              //   textColor: Colors.white,
-                                              // );
+                                              Fluttertoast.showToast(
+                                                msg:
+                                                    "${tempUser.email} + Added Sucesfully in database",
+                                                gravity: ToastGravity.CENTER,
+                                                backgroundColor: Colors.green,
+                                                textColor: Colors.white,
+                                              );
                                               clearFields();
                                               setState(() {
                                                 isLoading = 'false';
@@ -403,9 +409,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                                 fontSize: 20.0,
                                                 color: Colors.white)),
                                       ],
-                                    )
-                                    //
-                                    ,
+                                    ),
                                     shape: RoundedRectangleBorder(
                                         borderRadius:
                                             BorderRadius.circular(25.0)))),

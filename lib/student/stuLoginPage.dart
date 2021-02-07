@@ -119,7 +119,7 @@ class _StudentLoginPageState extends State<StudentLoginPage> {
                               image: AssetImage('assets/stuLogin.jpg'),
                             ),
                           ),
-                          height: 260,
+                          height: 235,
                           // width: 400,
                         ),
                         Divider(
@@ -183,7 +183,7 @@ class _StudentLoginPageState extends State<StudentLoginPage> {
                                 },
                                 color: Colors.deepOrangeAccent,
                                 splashColor: Colors.deepPurpleAccent,
-                                child: Text("Admin Login",
+                                child: Text("Student Login",
                                     style: TextStyle(
                                         fontSize: 30.0,
                                         fontWeight: FontWeight.w900,

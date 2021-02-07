@@ -3,6 +3,13 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/android.iml" filepath="$PROJECT_DIR$/.idea/modules/android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/android.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/android.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-2142818140/android.cloud_firestore.iml" filepath="$PROJECT_DIR$/.idea/modules/-2142818140/android.cloud_firestore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1748087505/android.firebase_auth.iml" filepath="$PROJECT_DIR$/.idea/modules/-1748087505/android.firebase_auth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1032789205/android.firebase_core.iml" filepath="$PROJECT_DIR$/.idea/modules/1032789205/android.firebase_core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1207843953/android.firebase_database.iml" filepath="$PROJECT_DIR$/.idea/modules/1207843953/android.firebase_database.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-567305991/android.flutter_secure_storage.iml" filepath="$PROJECT_DIR$/.idea/modules/-567305991/android.flutter_secure_storage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1012909137/android.fluttertoast.iml" filepath="$PROJECT_DIR$/.idea/modules/1012909137/android.fluttertoast.iml" />
     </modules>
   </component>
 </project>

@@ -1,7 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:kwiz/admin/addingTest/AddTestPage.dart';
-import 'package:kwiz/admin/addingTest/addTestSheet.dart';
 import 'package:kwiz/admin/adminHomePage.dart';
 import 'package:kwiz/admin/getStuDetails.dart';
 import 'package:kwiz/admin/signUp.dart';
@@ -31,7 +30,6 @@ class MyApp extends StatelessWidget {
         TeachersHomePage.id: (ctx) => TeachersHomePage(),
         AddTestPage.id: (context) => AddTestPage(),
         GetStuInfo.id: (context) => GetStuInfo(),
-        AddTest.id: (context) => AddTest(),
         SignUpPage.id: (context) => SignUpPage(),
       },
     );

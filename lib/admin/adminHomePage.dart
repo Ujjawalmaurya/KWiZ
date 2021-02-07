@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:kwiz/admin/addingTest/AddTestPage.dart';
-import 'package:kwiz/admin/addingTest/addTestSheet.dart';
 import 'package:decorated_icon/decorated_icon.dart';
 import 'package:kwiz/admin/getStuDetails.dart';
 import 'package:kwiz/admin/signUp.dart';
@@ -68,14 +67,12 @@ class _TeachersHomePageState extends State<TeachersHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.redAccent,
-        title: Text(
-          "Teachers Admin Page",
-          style: TextStyle(
-            fontWeight: FontWeight.w900,
-            fontSize: 30.0,
-            fontFamily: manjari,
-          ),
-        ),
+        title: Text("Admin",
+            style: TextStyle(
+              fontWeight: FontWeight.w900,
+              fontSize: 30.0,
+              // fontFamily: manjari,
+            )),
         centerTitle: true,
         actions: [
           IconButton(
@@ -86,7 +83,7 @@ class _TeachersHomePageState extends State<TeachersHomePage> {
         ],
       ),
       body: Container(
-        color: Colors.tealAccent,
+        color: Color(0xFF4810CC),
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
