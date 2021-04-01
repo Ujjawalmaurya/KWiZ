@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:kwiz/admin/addingTest/AddTestPage.dart';
+import 'package:kwiz/addingTest/AddTestPage.dart';
 import 'package:decorated_icon/decorated_icon.dart';
-import 'package:kwiz/admin/getStuDetails.dart';
-import 'package:kwiz/admin/signUp.dart';
+import 'package:kwiz/getStuDetails.dart';
+import 'package:kwiz/signUp.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';

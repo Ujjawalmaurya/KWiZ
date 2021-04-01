@@ -1,13 +1,13 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:kwiz/admin/addingTest/AddTestPage.dart';
-import 'package:kwiz/admin/adminHomePage.dart';
-import 'package:kwiz/admin/getStuDetails.dart';
-import 'package:kwiz/admin/signUp.dart';
+import 'package:kwiz/addingTest/AddTestPage.dart';
+import 'package:kwiz/homePage.dart';
+import 'package:kwiz/getStuDetails.dart';
+import 'package:kwiz/signUp.dart';
 import 'package:kwiz/landingPage.dart';
-import 'package:kwiz/student/stuHomePage.dart';
-import 'package:kwiz/student/stuLoginPage.dart';
-import 'package:kwiz/admin/teacherLoginPage.dart';
+// import 'package:kwiz/student/stuHomePage.dart';
+// import 'package:kwiz/student/stuLoginPage.dart';
+import 'package:kwiz/loginPage.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,8 +24,8 @@ class MyApp extends StatelessWidget {
       initialRoute: LandingPage.id,
       routes: {
         LandingPage.id: (context) => LandingPage(),
-        StudentLoginPage.id: (context) => StudentLoginPage(),
-        StudentHomePage.id: (ctx) => StudentHomePage(),
+        // StudentLoginPage.id: (context) => StudentLoginPage(),
+        // StudentHomePage.id: (ctx) => StudentHomePage(),
         TeachersLoginPage.id: (context) => TeachersLoginPage(),
         TeachersHomePage.id: (ctx) => TeachersHomePage(),
         AddTestPage.id: (context) => AddTestPage(),

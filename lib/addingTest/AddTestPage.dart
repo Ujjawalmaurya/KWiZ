@@ -5,6 +5,7 @@ import 'package:kwiz/constants.dart';
 import 'package:decorated_icon/decorated_icon.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class AddTestPage extends StatefulWidget {
   static const String id = 'addTestPage';
@@ -27,8 +28,54 @@ class _AddTestPageState extends State<AddTestPage> {
   var correctOption;
   String optionA, optionB, optionC, optionD;
   String branch, branchYear;
+  String date = 'February 7, 2021';
   String sub = 'empty';
-  bool isUploading;
+  String isLoading;
+
+  getData() async {
+    if (branch != null && branchYear != null && sub != 'empty') {
+      setState(() {
+        isLoading = 'true';
+        snapShotdata.clear();
+        datakey.clear();
+      });
+      final db = FirebaseDatabase.instance
+          .reference()
+          .child(branch + "-" + branchYear)
+          .child(date)
+          .child(sub);
+      db.once().then((DataSnapshot snapshot) {
+        Map<dynamic, dynamic> values = snapshot.value;
+
+        if (values == null) {
+          setState(() {
+            isLoading = 'false';
+          });
+          Fluttertoast.showToast(
+              msg: 'No videos uploaded in this section',
+              gravity: ToastGravity.BOTTOM,
+              backgroundColor: Colors.red,
+              toastLength: Toast.LENGTH_LONG);
+          // clearEnteredData();
+        } else {
+          for (var i = 0; i < values.keys.length; i++) {
+            setState(() {
+              datakey[i] = values.keys.toList()[i].toString();
+              snapShotdata[i] = values.values.toList()[i];
+            });
+          }
+        }
+      })
+          // .whenComplete(() => clearEnteredData())
+          ;
+    } else {
+      Fluttertoast.showToast(
+        msg: 'Please select all fields',
+        gravity: ToastGravity.BOTTOM,
+        backgroundColor: Colors.red,
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +106,7 @@ class _AddTestPageState extends State<AddTestPage> {
       body: SafeArea(
         child: addOrGet == true
             ? Container(
-                //! List-Builder Container State
+                //!===== Get details State ======
                 decoration: BoxDecoration(
                     image: DecorationImage(
                   fit: BoxFit.cover,
@@ -87,9 +134,7 @@ class _AddTestPageState extends State<AddTestPage> {
                                 //     builder: (context) {
                                 //       return Videos(
                                 //           link: snapShotdata[index]['link']);
-                                // },
-                                // ), );
-                                // }
+                                // },), );}
                               ),
                               Divider(color: Colors.pinkAccent)
                             ],

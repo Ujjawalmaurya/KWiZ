@@ -1,9 +1,9 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:kwiz/admin/adminHomePage.dart';
-import 'package:kwiz/admin/teacherLoginPage.dart';
-import 'package:kwiz/student/stuLoginPage.dart';
+import 'package:kwiz/homePage.dart';
+import 'package:kwiz/loginPage.dart';
+// import 'package:kwiz/student/stuLoginPage.dart';
 
 class ShowCasePage extends StatelessWidget {
   @override
@@ -35,12 +35,12 @@ class ShowCasePage extends StatelessWidget {
                         fit: BoxFit.cover,
                         image: AssetImage('assets/schoolGirl.jpg'))),
               ),
-              MainScreenButtons(
-                  colour: Colors.deepPurpleAccent,
-                  onPressed: () {
-                    Navigator.of(context).pushNamed(StudentLoginPage.id);
-                  },
-                  text: "I'am a Student"),
+              // MainScreenButtons(
+              //     colour: Colors.deepPurpleAccent,
+              //     onPressed: () {
+              //       Navigator.of(context).pushNamed(StudentLoginPage.id);
+              // },
+              // text: "I'am a Student"),
               MainScreenButtons(
                 colour: Colors.redAccent,
                 onPressed: () {

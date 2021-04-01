@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:kwiz/admin/adminHomePage.dart';
+import 'package:kwiz/homePage.dart';
 import 'package:kwiz/constants.dart';
 
 class TeachersLoginPage extends StatefulWidget {

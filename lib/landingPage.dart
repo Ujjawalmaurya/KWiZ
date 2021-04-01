@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:kwiz/HomePage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:kwiz/admin/adminHomePage.dart';
-import 'package:kwiz/student/stuHomePage.dart';
+import 'package:kwiz/homePage.dart';
+import 'package:kwiz/loginPage.dart';
+// import 'package:kwiz/student/stuHomePage.dart';
 import 'HomePage.dart';
 
 class LandingPage extends StatefulWidget {
@@ -21,28 +22,11 @@ class _LandingPageState extends State<LandingPage> {
           User user = snapshot.data;
 
           if (user == null) {
-            return ShowCasePage();
+            return TeachersLoginPage();
           }
           print(FirebaseAuth.instance.currentUser);
-          // return TeachersHomePage();
-
           if (user != null) {
-            print(user.email);
-            var str = user.email;
-            const start = "@";
-            const end = ".kwiz";
-
-            final startIndex = str.indexOf(start);
-            final endIndex = str.indexOf(end, startIndex + start.length);
-
-            var adminOrUser =
-                str.substring(startIndex + start.length, endIndex);
-
-            if (adminOrUser == 'admin') {
-              return TeachersHomePage();
-            } else {
-              return StudentHomePage();
-            }
+            return TeachersHomePage();
           }
         } else {
           return Scaffold(
