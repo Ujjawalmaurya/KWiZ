@@ -1,0 +1,45 @@
+name: kwiz
+description: A new Flutter project.
+
+publish_to: "none"
+version: 1.0.0+1
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+dependencies:
+  carousel_slider: ^4.1.1
+  cloud_firestore: null
+  decorated_icon: null
+  firebase_auth: ^3.7.0
+  firebase_core: null
+  firebase_database: null
+  flutter:
+    sdk: flutter
+  font_awesome_flutter: ^10.1.0
+  get: ^4.6.5
+  get_storage: null
+  intl: null
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  loading_indicator: ^3.1.0
+  # platform: ^3.1.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
+  #   - images/a_dot_ham.jpeg
+  # example:
+  fonts:
+    - family: Manjari
+      fonts:
+        - asset: fonts/Manjari-Bold.ttf
+        - asset: fonts/Manjari-Regular.ttf
+        - asset: fonts/Manjari-Thin.ttf
+    #         style: italic
+    - family: Jost
+      fonts:
+        - asset: fonts/Jost-VariableFont_wght.ttf
+          # - asset: fonts/TrajanPro_Bold.ttf
+          # weight: 700
